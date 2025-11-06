@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSConsoleApp
+namespace class4
 {
     public sealed class MovieCreditMap : ClassMap<MovieCredit>
     {
@@ -25,7 +25,6 @@ namespace CSConsoleApp
                 }
 
                 var list = JsonConvert.DeserializeObject<List<CastMember>>(castField);
-                // Преобразуем в иммутабельную коллекцию
                 return list?.ToImmutableList() ?? ImmutableList<CastMember>.Empty;
             });
 
@@ -38,7 +37,6 @@ namespace CSConsoleApp
                 }
 
                 var list = JsonConvert.DeserializeObject<List<CrewMember>>(crewField);
-                // И здесь тоже
                 return list?.ToImmutableList() ?? ImmutableList<CrewMember>.Empty;
             });
         }

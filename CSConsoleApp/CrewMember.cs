@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSConsoleApp
+namespace class4
 {
     public record CrewMember(
         [property: JsonProperty("credit_id")] string CreditId,

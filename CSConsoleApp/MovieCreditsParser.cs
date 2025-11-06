@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSConsoleApp
+namespace class4
 {
     public class MovieCreditsParser
     {
@@ -18,7 +18,7 @@ namespace CSConsoleApp
             _filePath = filePath;
         }
 
-        // Метод теперь возвращает IReadOnlyList для согласованности.
+      
         public IReadOnlyList<MovieCredit> Parse()
         {
             using (var reader = new StreamReader(_filePath, Encoding.UTF8))
@@ -26,7 +26,7 @@ namespace CSConsoleApp
             {
                 csv.Context.RegisterClassMap<MovieCreditMap>();
 
-                // Сразу материализуем результат в иммутабельный список.
+                
                 var records = csv.GetRecords<MovieCredit>().ToImmutableList();
                 return records;
             }
